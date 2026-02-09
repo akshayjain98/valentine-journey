@@ -1,10 +1,10 @@
-# 💖 Valentine Journey for Nikita
+# 💖 Valentine Journey for  
 
-A premium, interactive, and emotional Valentine's Day experience created for Nikita. This project features smooth animations, glassmorphism design, and a playful "Will you be my Valentine?" journey.
+A premium, interactive, and emotional Valentine's Day experience created for  . This project features smooth animations, glassmorphism design, and a playful "Will you be my Valentine?" journey.
 
 ## ✨ Features
 
-- **🌸 Personalized Landing**: A warm welcome specifically for Nikita.
+- **🌸 Personalized Landing**: A warm welcome specifically for  .
 - **📖 Heartfelt Narrative**: A timed, emotional message flow with magical sparkles.
 - **✨ Premium Aesthetics**: Modern glassmorphism, soft gradients, and floating heart animations.
 - **🕹️ Playful Interaction**: 
@@ -35,4 +35,4 @@ A premium, interactive, and emotional Valentine's Day experience created for Nik
     - Enable Pages in Settings -> Pages.
 
 ---
-Made with ❤️ for Nikita.
+Made with ❤️ for  .
