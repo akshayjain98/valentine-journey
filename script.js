@@ -117,16 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Force fixed position to avoid container constraints
         noBtn.style.position = 'fixed';
 
-        const padding = 60; // Safe distance from edges
+        const padding = 20; // Smaller padding for mobile
         const rect = noBtn.getBoundingClientRect();
-        const btnWidth = rect.width || noBtn.offsetWidth || 120;
-        const btnHeight = rect.height || noBtn.offsetHeight || 50;
+        const btnWidth = rect.width || 120;
+        const btnHeight = rect.height || 50;
 
         // Calculate maximum safe coordinates within the viewport
         const maxX = window.innerWidth - btnWidth - padding;
         const maxY = window.innerHeight - btnHeight - padding;
 
-        // Ensure bounds are safe
+        // Ensure bounds are safe (never less than padding)
         const safeMaxX = Math.max(padding, maxX);
         const safeMaxY = Math.max(padding, maxY);
 
@@ -139,23 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
         noBtn.style.top = `${newY}px`;
         noBtn.style.margin = '0';
         noBtn.style.zIndex = '100000';
-        noBtn.style.transition = 'left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        noBtn.style.transition = 'left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
 
         // Feedback burst at the new location
         createBurst(newX + btnWidth / 2, newY + btnHeight / 2, 5);
     }
 
     noBtn.addEventListener('mouseover', moveNoButton);
-    noBtn.addEventListener('mouseenter', moveNoButton);
-    noBtn.addEventListener('mousemove', (e) => {
-        // Extra check: if mouse is still inside, nudge it again
-        const rect = noBtn.getBoundingClientRect();
-        if (e.clientX >= rect.left && e.clientX <= rect.right &&
-            e.clientY >= rect.top && e.clientY <= rect.bottom) {
-            moveNoButton();
-        }
-    });
-
+    // On mobile, click triggers mouseenter/mouseover often, so we handle touch separately
     noBtn.addEventListener('touchstart', (e) => {
         e.preventDefault();
         moveNoButton();
