@@ -13,12 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const continueBtn = document.getElementById('continue-btn');
     const yesBtn = document.getElementById('yes-btn');
     const noBtn = document.getElementById('no-btn');
-    const musicToggle = document.getElementById('music-toggle');
-    const bgMusic = document.getElementById('bg-music');
+
     const messageParagraphs = document.querySelectorAll('.message-paragraph');
 
     // --- Configurations ---
-    let isMusicPlaying = false;
+
     const heartEmojis = ['❤️', '💖', '💗', '💓', '💘', '✨', '🌸', '💝'];
 
     // --- Floating Hearts Background ---
@@ -85,7 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
     beginBtn.addEventListener('click', () => {
         showSection('message');
         animateMessage();
-        if (!isMusicPlaying) toggleMusic();
+
+
     });
 
     function animateMessage() {
@@ -168,25 +168,5 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => clearInterval(interval), 5000);
     }
 
-    // --- Music Toggle ---
-    function toggleMusic() {
-        isMusicPlaying = !isMusicPlaying;
-        document.getElementById('music-icon').textContent = isMusicPlaying ? '🔊' : '🎵';
 
-        if (isMusicPlaying) {
-            bgMusic.play().catch(e => console.log("Audio play blocked by browser. User interaction required."));
-            bgMusic.volume = 0;
-            // Ramp up volume
-            let vol = 0;
-            const interval = setInterval(() => {
-                vol += 0.05;
-                bgMusic.volume = Math.min(vol, 0.5);
-                if (vol >= 0.5) clearInterval(interval);
-            }, 100);
-        } else {
-            bgMusic.pause();
-        }
-    }
-
-    musicToggle.addEventListener('click', toggleMusic);
 });

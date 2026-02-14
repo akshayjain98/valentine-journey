@@ -271,27 +271,6 @@ h2,
     }
 }
 
-/* Music Toggle */
-.music-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    transition: transform 0.3s;
-}
-
-.music-toggle:hover {
-    transform: scale(1.1);
-}
 
 /* Click Burst Components */
 .click-burst-container {
@@ -386,20 +365,5 @@ h2,
 
     .content.glass {
         padding: 1.5rem 1rem;
-    }
-
-    .music-toggle {
-        bottom: 15px;
-        right: 15px;
-        width: 45px;
-        height: 45px;
-    }
-}
-
-/* Ensure content doesn't get hidden behind the notch on iOS */
-@supports (padding: env(safe-area-inset-bottom)) {
-    .music-toggle {
-        bottom: calc(15px + env(safe-area-inset-bottom));
-        right: calc(15px + env(safe-area-inset-right));
     }
 }
